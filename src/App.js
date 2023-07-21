@@ -1,14 +1,17 @@
-import { Checkbox } from "./components/Checkbox/Checkbox";
+import { RadioButton } from "./components/RadioButton/RadioButton";
 
 function App() {
   return (
     <div>
-      <Checkbox>квадраты</Checkbox>
-      <Checkbox>круги</Checkbox>
-      <Checkbox color="red">красный</Checkbox>
-      <Checkbox color="blue">синий</Checkbox>
-      <Checkbox color="green">зелёный</Checkbox>
-      <Checkbox color="yellow">жёлтый</Checkbox>
+      <RadioButton name="shades" value="all">
+        все
+      </RadioButton>
+      <RadioButton name="shades" value="dark">
+        тёмные
+      </RadioButton>
+      <RadioButton name="shades" value="light">
+        светлые
+      </RadioButton>
     </div>
   );
 }

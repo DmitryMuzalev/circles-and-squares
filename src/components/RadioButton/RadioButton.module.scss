@@ -1,0 +1,32 @@
+.radio {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  column-gap: 0.56rem;
+  font-size: 2rem;
+  input[type="radio"] {
+    cursor: pointer;
+    position: relative;
+    appearance: none;
+    width: 2.625rem;
+    height: 2.625rem;
+    border-radius: 50%;
+    background-color: var(--white);
+    border: 3px solid var(--grey-light);
+
+    &:checked {
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 1.625rem;
+        height: 1.625rem;
+        background-color: var(--black);
+        border-radius: 50%;
+        border: 1px solid var(--grey-light);
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+}
