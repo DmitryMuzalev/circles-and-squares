@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;400&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Colors */
+  --white: #ffffff;
+  --black: #000000;
+  --yellow-light: #dcc655;
+  --yellow-dark: #936409;
+  --blue-light: #5a7dd6;
+  --blue-dark: #291a82;
+  --red-light: #db2c2c;
+  --red-dark: #7b0a0a;
+  --green-light: #5cb69b;
+  --green-dark: #175744;
+  --grey-light: rgba(217, 217, 217, 0.9);
+  --grey-dark: rgba(101, 101, 101, 0.9);
+
+  /* Font */
+  --f-family: "Inter", sans-serif;
+}
+
+body {
+  font-family: var(--f-family);
+  font-size: 16px;
+  padding: 200px; //!Временно
+}

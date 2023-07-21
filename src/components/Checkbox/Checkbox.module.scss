@@ -1,0 +1,54 @@
+.checkbox {
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem;
+  font-size: 2rem;
+  line-height: 1;
+  input[type="checkbox"] {
+    position: relative;
+    appearance: none;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 3px solid var(--grey-light);
+    &:checked {
+      &::before {
+        content: url("./check-icon.svg");
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -65%);
+      }
+    }
+  }
+}
+
+.red,
+.yellow,
+.blue,
+.green {
+  input[type="checkbox"] {
+    border-color: var(--grey-dark);
+  }
+}
+
+.red {
+  input[type="checkbox"] {
+    background-color: var(--red-light);
+  }
+}
+
+.yellow {
+  input[type="checkbox"] {
+    background-color: var(--yellow-light);
+  }
+}
+.blue {
+  input[type="checkbox"] {
+    background-color: var(--blue-light);
+  }
+}
+.green {
+  input[type="checkbox"] {
+    background-color: var(--green-light);
+  }
+}
