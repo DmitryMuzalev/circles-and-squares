@@ -23,10 +23,23 @@
 
   /* Font */
   --f-family: "Inter", sans-serif;
+  --fw-thin: 100;
+  --fw-regular: 400;
 }
 
 body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-family: var(--f-family);
+  font-weight: var(--fw-regular);
   font-size: 16px;
-  padding: 200px; //!Временно
+  background-color: var(--grey-light);
+}
+
+.app {
+  width: 640px;
+  background-color: var(--white);
+  padding: 0.5rem 1.5rem 4rem;
 }

@@ -1,9 +1,9 @@
-import { ColumnCount } from "./components/ColumnCount/ColumnCount";
+import { Header } from "./components/Header/Header";
 
 function App() {
   return (
-    <div>
-      <ColumnCount />
+    <div className="app">
+      <Header />
     </div>
   );
 }
