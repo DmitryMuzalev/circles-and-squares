@@ -1,9 +1,9 @@
-import { Figure } from "./components/Figure/Figure";
+import { ColumnCount } from "./components/ColumnCount/ColumnCount";
 
 function App() {
   return (
     <div>
-      <Figure />
+      <ColumnCount />
     </div>
   );
 }
