@@ -1,17 +1,22 @@
-import clsx from "clsx";
+import clsx from 'clsx';
 
-import classes from "./Checkbox.module.scss";
-import { useState } from "react";
+import classes from './Checkbox.module.scss';
+import { useDispatch, useSelector } from 'react-redux';
 
-function Checkbox({ color = "", children }) {
-  const [isChecked, setIsChecked] = useState(true);
+function Checkbox({ color = '', children, value, cb }) {
+  const dispatch = useDispatch();
+  const status = useSelector(
+    color
+      ? (state) => state.app.color[value]
+      : (state) => state.app.forms[value]
+  );
   const styles = clsx(classes.checkbox, color && classes[color]);
   return (
     <label className={styles}>
       <input
         type="checkbox"
-        checked={isChecked}
-        onChange={() => setIsChecked((prev) => !prev)}
+        checked={status}
+        onChange={() => dispatch(cb(value))}
       />
       {children}
     </label>

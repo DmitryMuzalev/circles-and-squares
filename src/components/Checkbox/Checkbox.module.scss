@@ -6,7 +6,8 @@
   font-size: 2rem;
   line-height: 1;
   padding-top: 0.4rem;
-  input[type="checkbox"] {
+
+  input[type='checkbox'] {
     cursor: pointer;
     position: relative;
     appearance: none;
@@ -15,7 +16,7 @@
     border: 3px solid var(--grey-light);
     &:checked {
       &::before {
-        content: url("./check-icon.svg");
+        content: url('./check-icon.svg');
         position: absolute;
         top: 50%;
         left: 50%;
@@ -29,29 +30,29 @@
 .yellow,
 .blue,
 .green {
-  input[type="checkbox"] {
+  input[type='checkbox'] {
     border-color: var(--grey-dark);
   }
 }
 
 .red {
-  input[type="checkbox"] {
+  input[type='checkbox'] {
     background-color: var(--red-light);
   }
 }
 
 .yellow {
-  input[type="checkbox"] {
+  input[type='checkbox'] {
     background-color: var(--yellow-light);
   }
 }
 .blue {
-  input[type="checkbox"] {
+  input[type='checkbox'] {
     background-color: var(--blue-light);
   }
 }
 .green {
-  input[type="checkbox"] {
+  input[type='checkbox'] {
     background-color: var(--green-light);
   }
 }

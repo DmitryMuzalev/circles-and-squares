@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;400&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;400&display=swap');
 
 * {
   margin: 0;
@@ -24,16 +24,16 @@
   --grey-dark: rgba(101, 101, 101, 0.9);
 
   /* Font */
-  --f-family: "Inter", sans-serif;
+  --f-family: 'Inter', sans-serif;
   --fw-thin: 100;
   --fw-regular: 400;
 }
 
 body {
-  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 3.125rem 0;
   font-family: var(--f-family);
   font-weight: var(--fw-regular);
   font-size: 16px;
@@ -42,7 +42,24 @@ body {
 
 .app {
   position: relative;
+  overflow: hidden;
   width: 640px;
   background-color: var(--white);
-  padding: 0.5rem 1.5rem 4rem;
+  padding: 0.5rem 1.5rem 1.25rem;
+}
+
+.toolbar {
+  position: absolute;
+  top: 10rem;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  row-gap: 5rem;
+  padding: 2rem 1rem 2rem 0.6rem;
+  background-color: var(--grey-light);
+  div {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.87rem;
+  }
 }
