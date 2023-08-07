@@ -5,7 +5,8 @@ export const fetchFigures = createAsyncThunk(
   'figures/fetchFigures',
   async () => {
     const response = await fetch(URL);
-    return await response.json();
+    const figures = await response.json();
+    return figures.map((f, i) => ({ ...f, id: i }));
   }
 );
 
