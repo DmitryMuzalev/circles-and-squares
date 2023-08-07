@@ -27,6 +27,7 @@ const figuresSlices = createSlice({
     },
     brightness: 'all',
     isShowToolbar: false,
+    numberColumns: 4,
   },
   reducers: {
     toggleColor: (state, action) => {
@@ -40,6 +41,9 @@ const figuresSlices = createSlice({
     },
     changeBrightness: (state, action) => {
       state.brightness = action.payload;
+    },
+    changeNumberColumns: (state, action) => {
+      state.numberColumns = action.payload;
     },
   },
   extraReducers: {
@@ -64,6 +68,7 @@ export const {
   toggleForm,
   changeBrightness,
   toggleToolbarDisplay,
+  changeNumberColumns,
 } = figuresSlices.actions;
 
 export default figuresSlices.reducer;

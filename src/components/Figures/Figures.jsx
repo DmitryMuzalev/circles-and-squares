@@ -3,7 +3,7 @@ import { Figure } from './Figure/Figure';
 import classes from './Figures.module.scss';
 
 function Figures() {
-  const { figures, color, forms, brightness } = useSelector(
+  const { figures, color, forms, brightness, numberColumns } = useSelector(
     (store) => store.app
   );
 
@@ -15,7 +15,10 @@ function Figures() {
       : figures.filter((f) => color[f.color] && forms[f.form]);
 
   return (
-    <ul className={classes.figures}>
+    <ul
+      className={classes.figures}
+      style={{ gridTemplateColumns: `repeat(${numberColumns}, 1fr)` }}
+    >
       {listFigures.map((f, i) => (
         <li key={i}>
           <Figure {...f} />
