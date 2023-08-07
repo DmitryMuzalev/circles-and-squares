@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/circles-and-squares/static/css/main.2494541c.css",
+    "main.js": "/circles-and-squares/static/js/main.3b4d444c.js",
+    "index.html": "/circles-and-squares/index.html",
+    "static/media/check-icon.svg": "/circles-and-squares/static/media/check-icon.f40c8c409ae6124d02a2.svg",
+    "main.2494541c.css.map": "/circles-and-squares/static/css/main.2494541c.css.map",
+    "main.3b4d444c.js.map": "/circles-and-squares/static/js/main.3b4d444c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2494541c.css",
+    "static/js/main.3b4d444c.js"
+  ]
+}
