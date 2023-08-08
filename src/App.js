@@ -9,9 +9,15 @@ import { motion, AnimatePresence } from 'framer-motion';
 function App() {
   const dispatch = useDispatch();
   const isShowToolbar = useSelector((state) => state.app.isShowToolbar);
+
   useEffect(() => {
     dispatch(fetchFigures());
   }, [dispatch]);
+
+  const variantsAnimateToolbar = {
+    start: { opacity: 1, translateX: 0 },
+    stop: { opacity: 0, translateX: '-100%' },
+  };
 
   return (
     <div className="app">
@@ -20,9 +26,10 @@ function App() {
       <AnimatePresence>
         {isShowToolbar && (
           <motion.div
-            initial={{ opacity: 0, translateX: '-100%' }}
-            animate={{ opacity: 1, translateX: 0 }}
-            exit={{ opacity: 0, translateX: '-100%' }}
+            variants={variantsAnimateToolbar}
+            initial={'stop'}
+            animate={'start'}
+            exit={'stop'}
             transition={{ duration: 0.5 }}
             className="toolbar"
           >
