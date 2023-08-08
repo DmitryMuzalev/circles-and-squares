@@ -10,10 +10,13 @@ function ColumnCount() {
     dispatch(changeNumberColumns(currentValue));
   };
   return (
-    <label className={classes.count}>
-      колонок
-      <input type="text" value={numberColumns} onChange={handleChange} />
-    </label>
+    <div>
+      <label className={classes.count}>
+        колонок
+        <input type="text" value={numberColumns} onChange={handleChange} />
+      </label>
+      <small>(допустимое значение: 2, 3 или 4)</small>
+    </div>
   );
 }
 export { ColumnCount };
