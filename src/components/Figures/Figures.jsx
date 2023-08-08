@@ -4,16 +4,25 @@ import classes from './Figures.module.scss';
 import { AnimatePresence, motion } from 'framer-motion';
 
 function Figures() {
-  const { figures, color, forms, brightness, numberColumns } = useSelector(
-    (store) => store.app
-  );
+  const { figures, filters, numberColumns } = useSelector((store) => store.app);
+
+  const { colors, forms, brightness } = filters;
 
   const listFigures =
-    brightness === 'dark'
-      ? figures.filter((f) => color[f.color] && forms[f.form] && f.dark)
-      : brightness === 'light'
-      ? figures.filter((f) => color[f.color] && forms[f.form] && !f.dark)
-      : figures.filter((f) => color[f.color] && forms[f.form]);
+    brightness.currentValue === 'dark'
+      ? figures.filter(
+          (f) => colors[f.color].value && forms[f.form].value && f.dark
+        )
+      : brightness.currentValue === 'light'
+      ? figures.filter(
+          (f) => colors[f.color].value && forms[f.form].value && !f.dark
+        )
+      : figures.filter((f) => colors[f.color].value && forms[f.form].value);
+
+  const variantsAnimateFigure = {
+    start: { opacity: 1, scale: 1 },
+    stop: { opacity: 0, scale: 0 },
+  };
 
   return (
     <motion.ul
@@ -25,9 +34,10 @@ function Figures() {
         {listFigures.map((f) => (
           <motion.li
             layout
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0 }}
+            variants={variantsAnimateFigure}
+            initial={'stop'}
+            animate={'start'}
+            exit={'stop'}
             transition={{ duration: 0.5 }}
             key={f.id}
           >

@@ -1,19 +1,14 @@
-import { useDispatch, useSelector } from 'react-redux';
 import classes from './RadioButton.module.scss';
-import { changeBrightness } from '../../redux/slices/figuresSlices';
 
-function RadioButton({ name, value, children }) {
-  const currentValue = useSelector((state) => state.app.brightness);
-  const dispatch = useDispatch();
-
+function RadioButton({ name, value, children, checked, cb }) {
   return (
     <label className={classes.radio}>
       <input
         type="radio"
         name={name}
         value={value}
-        checked={currentValue === value}
-        onChange={() => dispatch(changeBrightness(value))}
+        checked={checked}
+        onChange={cb}
       />
       {children}
     </label>

@@ -6,7 +6,13 @@ export const fetchFigures = createAsyncThunk(
   async () => {
     const response = await fetch(URL);
     const figures = await response.json();
-    return figures.map((f, i) => ({ ...f, id: i }));
+    return figures.map((f, i) => {
+      f.color = ['yellow', 'blue', 'red', 'green'].includes(f.color)
+        ? f.color
+        : 'red';
+      f.form = ['square', 'circle'].includes(f.form) ? f.form : 'square';
+      return { ...f, id: i };
+    });
   }
 );
 
@@ -16,32 +22,58 @@ const figuresSlices = createSlice({
     figures: [],
     status: null,
     error: null,
-    forms: {
-      square: true,
-      circle: true,
+    filters: {
+      forms: {
+        square: {
+          title: 'квадрат',
+          value: true,
+        },
+        circle: {
+          title: 'круг',
+          value: true,
+        },
+      },
+      colors: {
+        yellow: {
+          title: 'жёлтый',
+          value: true,
+        },
+        green: {
+          title: 'зелёный',
+          value: true,
+        },
+        red: {
+          title: 'красный',
+          value: true,
+        },
+        blue: {
+          title: 'синий',
+          value: true,
+        },
+      },
+      brightness: {
+        currentValue: 'all',
+        variants: [
+          { title: 'все', value: 'all' },
+          { title: 'тёмные', value: 'dark' },
+          { title: 'светлые', value: 'light' },
+        ],
+      },
     },
-    color: {
-      yellow: true,
-      green: true,
-      red: true,
-      blue: true,
-    },
-    brightness: 'all',
     isShowToolbar: false,
     numberColumns: 4,
   },
   reducers: {
-    toggleColor: (state, action) => {
-      state.color[action.payload] = !state.color[action.payload];
+    toggleCheckFilter: (state, action) => {
+      const { name, item } = action.payload;
+      state.filters[name][item].value = !state.filters[name][item].value;
     },
-    toggleForm: (state, action) => {
-      state.forms[action.payload] = !state.forms[action.payload];
+    toggleRadioFilter: (state, action) => {
+      const { name, item } = action.payload;
+      state.filters[name].currentValue = item;
     },
     toggleToolbarDisplay: (state) => {
       state.isShowToolbar = !state.isShowToolbar;
-    },
-    changeBrightness: (state, action) => {
-      state.brightness = action.payload;
     },
     changeNumberColumns: (state, action) => {
       state.numberColumns = action.payload;
@@ -65,9 +97,8 @@ const figuresSlices = createSlice({
 });
 
 export const {
-  toggleColor,
-  toggleForm,
-  changeBrightness,
+  toggleCheckFilter,
+  toggleRadioFilter,
   toggleToolbarDisplay,
   changeNumberColumns,
 } = figuresSlices.actions;
